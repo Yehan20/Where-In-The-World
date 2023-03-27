@@ -17,10 +17,18 @@ const GlobalStyle =createGlobalStyle`
     box-sizing: border-box;
   }
   body{
-      margin: 0;
+      margin: 0;                           
       min-height: 100vh;
       font-family: 'Nunito Sans', sans-serif;
-      background:${({theme}:ThemeType)=>theme.primary}
+      background:${({theme}:ThemeType)=>theme.secondary}
+  }
+  h1{
+    margin:0;
+  }
+
+
+  ::placeholder{
+    opacity:1 ;
   }
 `
 export default GlobalStyle;
