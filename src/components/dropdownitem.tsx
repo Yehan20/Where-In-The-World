@@ -1,4 +1,4 @@
-import  {DropDownItemType} from './firstsection'
+import  {DropDownItemType} from './mainsection'
 
 interface DropDownItemTypes{
     options:{
@@ -14,7 +14,7 @@ const DropDownItem = ({options,changeSelectedItem,closeDropDown}:DropDownItemTyp
      changeSelectedItem({label:options.label,value:options.value})
      closeDropDown()
     }
-    return ( <div onClick={handleClick} >
+    return ( <div className='dropDown__item' onClick={handleClick} >
         {options.label}
     </div> );
 }

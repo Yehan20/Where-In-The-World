@@ -2,8 +2,7 @@ import { useState } from 'react'
 import './css/style.css'
 import { ThemeProvider } from 'styled-components'
 import NavBar from './components/navbar'
-import FirstSection from './components/firstsection'
-import Countries from './components/countries'
+import MainSection from './components/mainsection'
 import GlobalStyle from './components/style/global.styles'
 import {color} from './components/colors/colors'
 
@@ -39,8 +38,7 @@ function App() {
       <>
         <GlobalStyle/>
         <NavBar colors={colors} setColors={setColors} />
-        <FirstSection />
-        <Countries />
+        <MainSection />
       </>
     </ThemeProvider>
   )
