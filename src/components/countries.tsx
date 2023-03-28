@@ -122,7 +122,9 @@ const Countries = ({filteredValue,searchValue}:CountryData) => {
       let Local:CleanedCountry[]  =JSON.parse(localStorage.getItem('Countries') as string)
       SearchCountries(searchValue,Local)
     },[searchValue])
-
+  
+    // I love yehan
+    // uleg harishmotov
     return ( <CountriesSectionStyle>
         <h2>{filteredValue.value}</h2>
         <div className="country__row">
