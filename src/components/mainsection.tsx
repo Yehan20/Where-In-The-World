@@ -19,18 +19,19 @@ const MainSection = () => {
         {label:'Asia',value:'Asia'},
         {label:'America',value:'America'},
         {label:'Europe',value:'Europe'},
-        {label:'Ocenia',value:'Ocenia'}
+        {label:'Oceania',value:'Oceania'}
     
     ]
 
     // States and Methods
     const [dropdownOpen,setDropDownOpen] = useState<boolean>(false)
-
+    const [searchValue,setSerachValue] = useState<string>('')
     const [dropdownItem,setDropDownItem] = useState<DropDownItemType>({label:'Filter By Region',value:''})
     const toggleDropDown=()=>setDropDownOpen(!dropdownOpen)
 
     // Refs
-    const dropDownMenuRef = useRef<HTMLInputElement | null>(null) 
+    const dropDownMenuRef = useRef<HTMLDivElement | null>(null) 
+    
     // console.log(typeof dropDownMenuRef)
 
     //Custom Hook
@@ -50,7 +51,7 @@ const MainSection = () => {
                 <label htmlFor="search">
                 <FaSearch/>
                 </label>
-                <input id='search' type="text" placeholder="Search for a Country" />
+                <input onChange={(e)=>setSerachValue(e.target.value)} id='search' type="text" placeholder="Search for a Country" />
             </div>
 
            <div className='dropDown__container'>
@@ -68,7 +69,7 @@ const MainSection = () => {
            </div>
       </UpperSectionStyle>
 
-     <Countries filteredValue={dropdownItem}/>
+     <Countries searchValue={searchValue} filteredValue={dropdownItem}/>
 
  </MainSectionStyle> );
 }

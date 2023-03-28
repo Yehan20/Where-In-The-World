@@ -1,12 +1,12 @@
 import React, {  Ref, RefObject, useEffect } from "react"
 
-const useClickOutside=(dropDownRef:any,cb:()=>void)=>{
+const useClickOutside=(dropDownRef:React.RefObject<HTMLElement>,cb:()=>void)=>{
    useEffect(()=>{
     console.log('useeffect');
     // console.log(dropDownRef);
     function clickOutSideHide(event:Event){
        
-       if(dropDownRef.current && !dropDownRef.current.contains(event.target)){
+       if(dropDownRef.current && !dropDownRef.current.contains(event.target as HTMLElement)){
         // if the current elment and the place we clicked doesnt match call the cb
          cb()
        }

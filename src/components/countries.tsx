@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 import  {DropDownItemType} from './mainsection'
+import {CountriesSectionStyle} from './style/mainsection.style'
+
 interface CountryData{
-    filteredValue:DropDownItemType
+    filteredValue:DropDownItemType;
+    searchValue:string;
 }
 interface CountryInfo{
     name:{
@@ -9,7 +12,7 @@ interface CountryInfo{
    
     };
     altSpellings:string[]
-    populaton:number;
+    population:number;
     region:string;
     subregion:string;
     capital:string[];
@@ -29,16 +32,39 @@ interface CountryInfo{
     };
     borders:string[];
 }
-const Countries = ({filteredValue}:CountryData) => {
-    const [countries,setCountries] = useState<[]>([]);
+interface CleanedCountry{
+    capital:string;
+    name:string;
+    nativeName:string;
+    population:string;
+    region:string;
+    subregion:string;
+    tld:string;
+    currencies:[{name:string},{symbol:string}];
+    languages:string[];
+    borders:string[];
+    flags:{png:string,svg:string,alt:string};
+}
+
+const Countries = ({filteredValue,searchValue}:CountryData) => {
+
+    console.log('search value',searchValue);
+    const [countries,setCountries] = useState<CleanedCountry[]>([]);
+    const [loading,setLoading] = useState<Boolean>(true);
    
     //https://restcountries.com/v3.1/region// 
+    //  get the countries
     const fetchCountries = async()=>{
+        let API_URL:string;
+        setLoading(true)
         try{
-            const response = await fetch('https://restcountries.com/v3.1/all');
+            if(filteredValue.value=='All' || filteredValue.value==='')API_URL = `https://restcountries.com/v3.1/all`
+            else API_URL =`https://restcountries.com/v3.1/region/${filteredValue.value}`
+         
+            const response = await fetch(API_URL);
             const data = await response.json();
 
-            const modifedData= data.map((item:CountryInfo,index:number)=>{
+            const ModifiedCountries= data.map((item:CountryInfo)=>{
 
                 let formattedCurrency =item.currencies &&  Object.values(item.currencies) ;
                 let formattedLanguages = item.languages && Object.values(item.languages);
@@ -46,7 +72,7 @@ const Countries = ({filteredValue}:CountryData) => {
                    capital:item.capital || 'NA',
                    name:item.name.common,
                    nativeName:item.altSpellings|| item.name.common ,
-                   population:item.populaton,
+                   population:item.population.toLocaleString(),
                    region:item.region,
                    subregion:item.subregion,
                    tld:item.tld,
@@ -56,29 +82,64 @@ const Countries = ({filteredValue}:CountryData) => {
                    flags:item.flags
 
                }
-            })
-             setCountries(modifedData)
+            }).sort((a:CleanedCountry, b:CleanedCountry) => {
+                if (a.name < b.name) {
+                  return -1;
+                }
+                if (a.name > b.name) {
+                  return 1;
+                }
+                return 0;
+              });
+
+             setCountries(ModifiedCountries)
+             localStorage.setItem('Countries',JSON.stringify(ModifiedCountries))
+             let Local:CleanedCountry[]  =JSON.parse(localStorage.getItem('Countries') as string)
+             SearchCountries(searchValue,Local)
+             setLoading(false)
         }catch(error){
             console.log(error);
         }
     }
+    
+    // this is some change 
+    //fewfewfewfewfew
+    // i love to eat
+    const SearchCountries = (searchValue:string,arr:CleanedCountry[])=>{
+        //  split this into an array
+        const regex = new RegExp(searchValue,'i');
+        const filteredCountries = arr.filter((item:any)=>regex.test(item.name));
+        setCountries(filteredCountries)
+
+    }
+
     useEffect(()=>{
          fetchCountries()
-    },[])
-    return ( <section>
+    },[filteredValue.value])
+
+    useEffect(()=>{
+      console.log('serch use effect')
+      let Local:CleanedCountry[]  =JSON.parse(localStorage.getItem('Countries') as string)
+      SearchCountries(searchValue,Local)
+    },[searchValue])
+
+    return ( <CountriesSectionStyle>
         <h2>{filteredValue.value}</h2>
         <div className="country__row">
-             {countries.map((country:any)=>{
-                 return <div>
+             {loading && <div>Loaing</div>}
+             {(!loading && countries) && countries.map((country:CleanedCountry,index:number)=>{
+                 return <div className='country' key={index}>
                     <img src={country.flags.png} alt={country.name} />
-                    <h3>{country.name}</h3>
-                    <p>Population {country.population}</p>
-                    <p>Region {country.region}</p>
-                    <p>Capital {country.capital}</p>
+                    <div className="country__body">
+                        <h3>{country.name}</h3>
+                        <p><span>Population</span> {country.population}</p>
+                        <p><span>Region </span> {country.region}</p>
+                        <p><span>Capital </span> {country.capital}</p>
+                    </div>
                  </div>
              })}
         </div>
-    </section> );
+    </CountriesSectionStyle> );
 }
  
 export default Countries;

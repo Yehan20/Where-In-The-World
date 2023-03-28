@@ -1,11 +1,8 @@
 import styled from 'styled-components'
 import {color as colors} from '../colors/colors'
-export const MainSectionStyle = styled.main`
-
-  
+export const MainSectionStyle = styled.main` 
 `
 export const UpperSectionStyle = styled.section`
-
 
         padding:1.5em 2em;
         display:flex;
@@ -96,8 +93,54 @@ export const UpperSectionStyle = styled.section`
             display: flex;
         }
     
+ }    
+`
+
+export const CountriesSectionStyle = styled.section`
+    padding:1.5em 2em;
+    .country__row{
+      display:flex ;
+      flex-wrap:wrap ;
+      /* justify-content:space-between ; */
+      gap:3.6em;
     }
 
-    
-
+    .country{
+      /* min-width:16rem ; */
+      box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+      max-width:16rem ;
+      flex-grow:1 ;
+      width:100%;
+      border-radius:0.4em ;
+      overflow:hidden ;
+      cursor: pointer;
+      background-color:${({theme})=>theme.primary} ;
+      transition:transform 250ms ease-out ;
+      &:hover{
+        transform:translateY(-10px);
+      }
+      h3{
+        margin-top:0 ;
+        margin-bottom:0.5em;
+        color:${({theme})=>theme.textClr} ;
+      }
+      p{
+        margin:0.3em 0 ;
+        font-size:0.9rem ;
+        color:${({theme})=>theme.textClr} ;
+      }
+      span{
+        font-weight:600 ;
+        /* color:${({theme})=>theme.iconClr} ; */
+      }
+      img{
+        width:100% ;
+        height:160px ;
+        /* object-fit:cover ; */
+      }
+      .country__body{
+        padding:1em 1.3em 3em 1.3em ;
+        
+      }
+    }
 `
