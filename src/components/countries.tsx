@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
+import useFetch from '../hooks/useFetch';
 import  {DropDownItemType} from './mainsection'
 import {CountriesSectionStyle} from './style/mainsection.style'
 
-interface CountryData{
+export interface CountryData{
     filteredValue:DropDownItemType;
     searchValue:string;
 }
-interface CountryInfo{
+export interface CountryInfo{
     name:{
         common:string,
    
@@ -32,7 +33,7 @@ interface CountryInfo{
     };
     borders:string[];
 }
-interface CleanedCountry{
+export interface CleanedCountry{
     capital:string;
     name:string;
     nativeName:string;
@@ -48,83 +49,11 @@ interface CleanedCountry{
 
 const Countries = ({filteredValue,searchValue}:CountryData) => {
 
-    console.log('search value',searchValue);
-    const [countries,setCountries] = useState<CleanedCountry[]>([]);
-    const [loading,setLoading] = useState<Boolean>(true);
+    //console.log('search value',searchValue);
+
+
+    const{countries,loading}=useFetch(filteredValue.value,searchValue)
    
-    //https://restcountries.com/v3.1/region// 
-    //  get the countries
-    const fetchCountries = async()=>{
-        let API_URL:string;
-        setLoading(true)
-        try{
-            if(filteredValue.value=='All' || filteredValue.value==='')API_URL = `https://restcountries.com/v3.1/all`
-            else API_URL =`https://restcountries.com/v3.1/region/${filteredValue.value}`
-         
-            const response = await fetch(API_URL);
-            const data = await response.json();
-
-            const ModifiedCountries= data.map((item:CountryInfo)=>{
-
-                let formattedCurrency =item.currencies &&  Object.values(item.currencies) ;
-                let formattedLanguages = item.languages && Object.values(item.languages);
-               return {
-                   capital:item.capital || 'NA',
-                   name:item.name.common,
-                   nativeName:item.altSpellings|| item.name.common ,
-                   population:item.population.toLocaleString(),
-                   region:item.region,
-                   subregion:item.subregion,
-                   tld:item.tld,
-                   currencies:formattedCurrency || [{name:''},{symbol:'NA'}],
-                   languages:formattedLanguages || ['NA'],
-                   borders:item.borders || ['NA'],
-                   flags:item.flags
-
-               }
-            }).sort((a:CleanedCountry, b:CleanedCountry) => {
-                if (a.name < b.name) {
-                  return -1;
-                }
-                if (a.name > b.name) {
-                  return 1;
-                }
-                return 0;
-              });
-
-             setCountries(ModifiedCountries)
-             localStorage.setItem('Countries',JSON.stringify(ModifiedCountries))
-             let Local:CleanedCountry[]  =JSON.parse(localStorage.getItem('Countries') as string)
-             SearchCountries(searchValue,Local)
-             setLoading(false)
-        }catch(error){
-            console.log(error);
-        }
-    }
-    
-    // this is some change 
-    //fewfewfewfewfew
-    // i love to eat
-    const SearchCountries = (searchValue:string,arr:CleanedCountry[])=>{
-        //  split this into an array
-        const regex = new RegExp(searchValue,'i');
-        const filteredCountries = arr.filter((item:any)=>regex.test(item.name));
-        setCountries(filteredCountries)
-
-    }
-
-    useEffect(()=>{
-         fetchCountries()
-    },[filteredValue.value])
-
-    useEffect(()=>{
-      console.log('serch use effect')
-      let Local:CleanedCountry[]  =JSON.parse(localStorage.getItem('Countries') as string)
-      SearchCountries(searchValue,Local)
-    },[searchValue])
-  
-    // I love yehan
-    // uleg harishmotov
     return ( <CountriesSectionStyle>
         <h2>{filteredValue.value}</h2>
         <div className="country__row">

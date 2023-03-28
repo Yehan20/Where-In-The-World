@@ -1,7 +1,7 @@
 import {BsMoon,BsSun} from 'react-icons/bs'
 import NavBarStyled from './style/navbar.style';
 import {color} from '../components/colors/colors'
-
+import {Link} from 'react-router-dom'
 interface NavBarInterface{
      setColors:React.Dispatch<React.SetStateAction<{
         primary: string;

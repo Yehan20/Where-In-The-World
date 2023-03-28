@@ -39,10 +39,7 @@ const MainSection = () => {
          setDropDownOpen(false)
     }) 
     
-    useEffect(()=>{
-        console.log('yehans');
-        return()=>console.log('HELLO FROM ')
-    })
+
 
     return ( 
      <MainSectionStyle>
