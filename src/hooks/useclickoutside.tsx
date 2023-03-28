@@ -13,7 +13,7 @@ const useClickOutside=(dropDownRef:React.RefObject<HTMLElement>,cb:()=>void)=>{
     }
     document.addEventListener('mousedown',clickOutSideHide);
     return ()=>{
-          console.log('clean up')
+         //  console.log('clean up')
           document.removeEventListener('mousedown',clickOutSideHide)
         }
 

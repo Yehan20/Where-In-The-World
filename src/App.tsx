@@ -5,7 +5,8 @@ import NavBar from './components/navbar'
 import MainSection from './components/mainsection'
 import GlobalStyle from './components/style/global.styles'
 import {color} from './components/colors/colors'
-
+import {BrowserRouter as Router,Route,Routes} from 'react-router-dom'
+import Test from './components/test'
 function App() {
   
   const [colors,setColors]=useState({
@@ -34,13 +35,21 @@ function App() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
+    <Router>
+      <ThemeProvider theme={theme}>
       <>
         <GlobalStyle/>
         <NavBar colors={colors} setColors={setColors} />
-        <MainSection />
+      
+           <Routes>
+              <Route path='/' element={<MainSection/>}/>
+           </Routes>
+ 
+        {/* <MainSection /> */}
       </>
-    </ThemeProvider>
+    </ThemeProvider>   
+    </Router>
+
   )
 }
 
