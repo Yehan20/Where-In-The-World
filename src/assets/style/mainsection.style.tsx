@@ -27,7 +27,12 @@ export const UpperSectionStyle = styled.section`
         /* padding:1em 1em 1em 1em ; */
         padding: 1em 1.5em;
         gap:2em;
-        font-size:0.9rem ;
+        h3{
+          font-size:0.9rem ;
+          margin:0 ;
+          font-weight:600 ;
+        }
+
         border-radius:0.3em;
         box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
         cursor: pointer;
@@ -130,7 +135,7 @@ export const UpperSectionStyle = styled.section`
     }
 
     @media (min-width:1365px){
-      padding:3em 4.5em 1.5em 4.5em ;
+      padding:3em 4.5em 1.5em 5em ;
 
       .search__box{
         padding:1.2em  1em 1.2em 2em;
@@ -159,7 +164,8 @@ export const CountriesSectionStyle = styled.section`
       display:flex ;
       flex-wrap:wrap ;
       justify-content:center ;
-      gap:3.6em;
+      column-gap:3.6em;
+      row-gap:4em;
     }
      article{
       max-width: 16rem;
@@ -208,11 +214,11 @@ export const CountriesSectionStyle = styled.section`
 
       
   @media (min-width:1365px){
-    padding:1.5em 4.5em ;
+    padding:1.5em 4.5em 1.5em 5em ;
 
    .country__row{
     justify-content:space-between ;
-    gap:3em;
+    column-gap:3.6em;
 
     article{
       max-width:21% ;

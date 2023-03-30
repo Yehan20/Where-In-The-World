@@ -53,7 +53,7 @@ const Home = () => {
            <div className='dropDown__container'  ref={dropDownMenuRef}>
 
              <div className='dropDown__menu' onClick={toggleDropDown} >
-               {!dropdownItem.value || dropdownItem.value==='All' ? 'Filter By Region':dropdownItem.value }
+               <h3> {!dropdownItem.value || dropdownItem.value==='All' ? 'Filter By Region':dropdownItem.value }</h3>
                <FaAngleDown/>
              </div>
 

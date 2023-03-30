@@ -31,7 +31,7 @@ const NavBarStyled  = styled.nav`
     }
   }
   @media (min-width:1365px){
-   padding:1.5em 4.5em ;
+   padding:1.5em 4.5em 1.5em 5em ;
    button{
       font-size:1rem ;
     }
