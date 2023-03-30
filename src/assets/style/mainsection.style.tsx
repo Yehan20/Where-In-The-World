@@ -84,7 +84,8 @@ export const UpperSectionStyle = styled.section`
             color:${({theme})=>theme.iconClr} 
         }
         input{
-            min-width:350px ;
+            /* min-width:350px ; */
+            max-width: 600px;
             background-color:transparent ;
             border:0 ;
             color:${({theme})=>theme.iconClr} ;

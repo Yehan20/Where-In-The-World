@@ -27,7 +27,7 @@ const useFetch = (region:string,filteredValue: string, searchValue: string) => {
     useEffect(() => {
 
         let isMounted = true
-        
+
         // Abort controllers
         const controller = new AbortController()
         const signal = controller.signal
@@ -96,7 +96,7 @@ const useFetch = (region:string,filteredValue: string, searchValue: string) => {
         fetchCountries()
         return () => {
 
-            //console.log('fetch sborted');
+     
             isMounted=false
             controller.abort()
         }

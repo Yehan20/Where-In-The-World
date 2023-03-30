@@ -22,7 +22,7 @@ const Countries = ({ filteredValue, searchValue }: CountryData) => {
                 duration: 1,
                 ease: "linear",
             }}>
-             {countries.length===0 && <h3>No Results</h3>}   
+             {!loading && countries.length===0 && <h3>No Results</h3>}   
             {(countries) && countries.map((country: CleanedCountry, index: number) => {
                 return <article key={index}>
                     <Link title='Click to visit' to={`/country/${country.countryExtension}`} className='country'>
