@@ -6,7 +6,7 @@ import DropDownItem from '../dropdown/dropdownitem';
 import Countries from '../countries/allcountries';
 import useClickOutside from '../../hooks/useclickoutside'
 import {DropDownItemType} from '../../interfaces/countries.interface'
-import {motion} from 'framer-motion'
+
 
 
 const Home = () => {
@@ -34,7 +34,7 @@ const Home = () => {
 
     //Custom Hook
     useClickOutside(dropDownMenuRef,()=>{
-        console.log('clicked again')
+   
          setDropDownOpen(false)
     }) 
     

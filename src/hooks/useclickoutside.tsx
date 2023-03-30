@@ -2,7 +2,7 @@ import React, {  useEffect } from "react"
 
 const useClickOutside=(dropDownRef:React.RefObject<HTMLElement>,cb:()=>void)=>{
    useEffect(()=>{
-    console.log('useeffect');
+   
  
     function clickOutSideHide(event:Event){
     

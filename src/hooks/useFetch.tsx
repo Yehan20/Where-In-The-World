@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import {CleanedCountry,CountryInfo} from '../interfaces/countries.interface'
+
 type MyError= {
     message: string;
     statusCode?:null | number;
@@ -24,10 +25,10 @@ const useFetch = (region:string,filteredValue: string, searchValue: string) => {
     }
 
     useEffect(() => {
-        console.log('hook ran');
-        let isMounted = true
-        // Abort controllers
 
+        let isMounted = true
+        
+        // Abort controllers
         const controller = new AbortController()
         const signal = controller.signal
 

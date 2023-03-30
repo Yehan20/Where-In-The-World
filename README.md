@@ -11,8 +11,6 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
@@ -48,36 +46,16 @@ Users should be able to:
 - Flexbox
 - Bem
 - [React](https://reactjs.org/) - JS library
-- [TypeScript](https://nextjs.org/) - Super Set of Js
+- [TypeScript](https://www.typescriptlang.org/) - Super Set of Js
 - [Styled Components](https://styled-components.com/) - For styles
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
-
+My first project using react with type script, learnt a alot an gained lots of experience , mainly learnt to  use intefaces in type script and managme props that is send to components and use them to add types. learnt use framer motion for animations
 
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
+- Website - [portfolio](https://yehan-nilanga.netlify.app/)
+- Frontend Mentor - [@Yehan20](https://www.frontendmentor.io/profile/Yehan20)

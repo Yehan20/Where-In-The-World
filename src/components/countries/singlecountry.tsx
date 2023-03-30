@@ -12,14 +12,13 @@ const SingleCountry = ({ country, animate, borderCountries }: SingleCountryType)
     return (
         <CountryStyle  >
             <AnimatePresence mode='wait'>
-                <motion.div className="part__1" >
+                <div className="part__1" >
                     <motion.img src={country.flags.svg} className="large__flag" id={animate ? 'animate' : ''}
-
 
                         alt={country.name} />
 
                     <img src={country.flags.coatOfArms} className="coat__of__arms" alt={country.name} />
-                </motion.div>
+                </div>
             </AnimatePresence>
             <motion.div initial={{ opacity: 0, x: -100, }} animate={{ opacity: 1, x: 0, }} transition={{
                 type: 'tween',
@@ -44,8 +43,7 @@ const SingleCountry = ({ country, animate, borderCountries }: SingleCountryType)
                 </div>
                 <div className="border__countries">
                     <span>Border Countries </span>{
-                        country.borders.map((border, index) => {
-                            console.log(borderCountries)
+                        country.borders.map((border, index) => {            
                             return <Link key={index} className='border__btn' to={`/country/${border}`}>{borderCountries[index]}</Link>
                         })
                     }
