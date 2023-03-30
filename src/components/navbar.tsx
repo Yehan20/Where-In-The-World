@@ -1,24 +1,24 @@
 import {BsMoon,BsSun} from 'react-icons/bs'
 import NavBarStyled from './style/navbar.style';
 import {color} from '../components/colors/colors'
-import {Link} from 'react-router-dom'
-interface NavBarInterface{
-     setColors:React.Dispatch<React.SetStateAction<{
-        primary: string;
-        secondary: string;
-        textClr:string
-        isDark: boolean;
-        iconClr:string;
-    }>>;
+import {NavBarInterface} from '../interfaces/countries.interface'
+// interface NavBarInterface{
+//      setColors:React.Dispatch<React.SetStateAction<{
+//         primary: string;
+//         secondary: string;
+//         textClr:string
+//         isDark: boolean;
+//         iconClr:string;
+//     }>>;
 
-    colors: {
-        primary: string;
-        secondary: string;
-        textClr:string;
-        isDark: boolean;
-        iconClr:string;
-    }
-}
+//     colors: {
+//         primary: string;
+//         secondary: string;
+//         textClr:string;
+//         isDark: boolean;
+//         iconClr:string;
+//     }
+// }
 const NavBar = ({setColors,colors}:NavBarInterface) => {
     const handleClick=()=>{
         // if this is dark mark light 
@@ -28,7 +28,7 @@ const NavBar = ({setColors,colors}:NavBarInterface) => {
     return ( <NavBarStyled>
           <h1>Where in the World</h1>
           <button onClick={handleClick}>
-           {colors.isDark?<><BsSun/>Light Mode</>:<><BsMoon/>Dark Mode</>}
+           {colors.isDark?<><BsMoon fill='white'/>Dark Mode</>:<><BsSun/>Light Mode</>}
           </button>
     </NavBarStyled> );
 }

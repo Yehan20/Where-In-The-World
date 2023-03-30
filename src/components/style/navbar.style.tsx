@@ -4,6 +4,7 @@ const NavBarStyled  = styled.nav`
   background-color:${({theme})=>theme.primary};
   padding:1.5em 2em;
   display:flex;
+ 
   align-items:flex-start;
   justify-content:space-between;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
@@ -12,6 +13,7 @@ const NavBarStyled  = styled.nav`
     border:0;
     cursor:pointer;
     color:${({theme})=>theme.textClr};
+    
     display:flex;
     align-items:center;
     gap:0.5em;

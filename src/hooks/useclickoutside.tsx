@@ -5,15 +5,15 @@ const useClickOutside=(dropDownRef:React.RefObject<HTMLElement>,cb:()=>void)=>{
     console.log('useeffect');
     // console.log(dropDownRef);
     function clickOutSideHide(event:Event){
-       
-       if(dropDownRef.current && !dropDownRef.current.contains(event.target as HTMLElement)){
+      //  console.log(event.target,dropDownRef.current);
+       if(dropDownRef.current && !dropDownRef.current.contains(event.target as Node)){
         // if the current elment and the place we clicked doesnt match call the cb
          cb()
        }
     }
     document.addEventListener('mousedown',clickOutSideHide);
     return ()=>{
-         //  console.log('clean up')
+          console.log('clean up')
           document.removeEventListener('mousedown',clickOutSideHide)
         }
 

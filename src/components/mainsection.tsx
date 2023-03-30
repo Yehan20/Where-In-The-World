@@ -5,21 +5,22 @@ import { FaAngleDown } from 'react-icons/fa';
 import DropDownItem from './dropdownitem';
 import Countries from './countries';
 import useClickOutside from '../hooks/useclickoutside'
-
-export type DropDownItemType={
-    label:string | '';
-    value:string | '';
-}
+import {DropDownItemType} from '../interfaces/countries.interface'
+import {motion} from 'framer-motion'
+// export interface DropDownItemType{
+//     label:string | '';
+//     value:string | '';
+// }
 
 const MainSection = () => {
     // Arrays
     const dropDownlist:DropDownItemType[]=[
         {label:'All',value:'All'},
-        {label:'Africa',value:'Africa'},
-        {label:'Asia',value:'Asia'},
-        {label:'America',value:'America'},
-        {label:'Europe',value:'Europe'},
-        {label:'Oceania',value:'Oceania'}
+        {label:'region',value:'Africa'},
+        {label:'region',value:'Asia'},
+        {label:'region',value:'America'},
+        {label:'region',value:'Europe'},
+        {label:'region',value:'Oceania'}
     
     ]
 
@@ -36,6 +37,7 @@ const MainSection = () => {
 
     //Custom Hook
     useClickOutside(dropDownMenuRef,()=>{
+        console.log('clicked again')
          setDropDownOpen(false)
     }) 
     
@@ -51,21 +53,37 @@ const MainSection = () => {
                 <input onChange={(e)=>setSerachValue(e.target.value)} id='search' type="text" placeholder="Search for a Country" />
             </div>
 
-           <div className='dropDown__container'>
+           <div className='dropDown__container'  ref={dropDownMenuRef}>
 
              <div className='dropDown__menu' onClick={toggleDropDown} >
                {!dropdownItem.value || dropdownItem.value==='All' ? 'Filter By Region':dropdownItem.value }
                <FaAngleDown/>
              </div>
 
-             <div className="dropDown__item__head" ref={dropDownMenuRef}>
+             <div className="dropDown__item__head" >
                 {dropdownOpen && dropDownlist.map((listItem,index)=>{
                     return <DropDownItem key={index} closeDropDown={toggleDropDown} changeSelectedItem={setDropDownItem} options={listItem}/>
                 })}
              </div>
            </div>
       </UpperSectionStyle>
+      {/* <motion.div animate={
+          {
+            x:"1150px",
+            y:"-20px",
+            opacity:1 
+          }
+      }
+       initial={{
+          opacity:0.2
+       }}
+        transition={{
+            duration:1,
 
+        }}
+      className='box'>
+
+      </motion.div> */}
      <Countries searchValue={searchValue} filteredValue={dropdownItem}/>
 
  </MainSectionStyle> );

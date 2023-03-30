@@ -1,12 +1,11 @@
 import { useState } from 'react'
-import './css/style.css'
 import { ThemeProvider } from 'styled-components'
 import NavBar from './components/navbar'
 import MainSection from './components/mainsection'
 import GlobalStyle from './components/style/global.styles'
 import {color} from './components/colors/colors'
 import {BrowserRouter as Router,Route,Routes} from 'react-router-dom'
-import Test from './components/test'
+import Country from './components/country'
 function App() {
   
   const [colors,setColors]=useState({
@@ -43,6 +42,7 @@ function App() {
       
            <Routes>
               <Route path='/' element={<MainSection/>}/>
+              <Route path='/country/:id' element={<Country/>}/>
            </Routes>
  
         {/* <MainSection /> */}

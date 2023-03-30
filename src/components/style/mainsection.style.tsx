@@ -14,6 +14,7 @@ export const UpperSectionStyle = styled.section`
        font-weight:500 ;
        min-width:200px ;
        color:${({theme})=>theme.textClr} ;
+       z-index:33 ;
     }
 
 
@@ -101,10 +102,14 @@ export const CountriesSectionStyle = styled.section`
     .country__row{
       display:flex ;
       flex-wrap:wrap ;
-      /* justify-content:space-between ; */
+      justify-content:center ;
       gap:3.6em;
     }
-
+     article{
+      max-width: 16rem;
+      width: 100%;
+      display:flex;
+     }
     .country{
       /* min-width:16rem ; */
       box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
@@ -113,6 +118,7 @@ export const CountriesSectionStyle = styled.section`
       width:100%;
       border-radius:0.4em ;
       overflow:hidden ;
+      text-decoration:none ;
       cursor: pointer;
       background-color:${({theme})=>theme.primary} ;
       transition:transform 250ms ease-out ;
