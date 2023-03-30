@@ -36,7 +36,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Click to visit](https://github.com/Yehan20/Where-In-The-World)
-- Live Site URL: [Click to visit](https://yn-where-in-the-world.netlify.app/country/)
+- Live Site URL: [Click to visit](https://yn-where-in-the-world.netlify.app/)
 
 ## My process
 
