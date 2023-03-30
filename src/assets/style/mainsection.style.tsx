@@ -1,17 +1,18 @@
 import styled from 'styled-components'
-import {color as colors} from '../colors/colors'
+
 export const MainSectionStyle = styled.main` 
 `
 export const UpperSectionStyle = styled.section`
-
-        padding:1.5em 2em;
+        
+        padding:3em 2em 1.5em 2em;
         display:flex;
         justify-content:space-between;
-   
+     
+
 
     .dropDown__container{
        position: relative;
-       font-weight:500 ;
+       font-weight:600 ;
        min-width:200px ;
        color:${({theme})=>theme.textClr} ;
        z-index:33 ;
@@ -23,8 +24,10 @@ export const UpperSectionStyle = styled.section`
         justify-content:space-between ;
         align-items:center;
         background-color:${({theme})=>theme.primary} ;
-        padding:1em 1.5em 1em 1.5em ;
+        /* padding:1em 1em 1em 1em ; */
+        padding: 1em 1.5em;
         gap:2em;
+        font-size:0.9rem ;
         border-radius:0.3em;
         box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
         cursor: pointer;
@@ -40,10 +43,12 @@ export const UpperSectionStyle = styled.section`
         position:absolute;
         background-color:${({theme})=>theme.primary} ;
         top:3.5em ;
-        border-radius:0.3em;
+        border-radius:0.4em;
         box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
         width:100% ;
         overflow:hidden ;
+        padding-top:0.5em ;
+        padding-bottom:0.5em ;
         
     }
     .dropDown__item{
@@ -69,7 +74,7 @@ export const UpperSectionStyle = styled.section`
     
     .search__box{
         background-color:${({theme})=>theme.primary} ;
-        padding:0.9em  1em 0.9em 2em;
+        padding:1em  1em 1em 2em;
         box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
         display:flex;
         align-items:center ;
@@ -83,7 +88,7 @@ export const UpperSectionStyle = styled.section`
             background-color:transparent ;
             border:0 ;
             color:${({theme})=>theme.iconClr} ;
-            font-size:1rem ;
+            font-size:0.9rem ;
             &:focus{
                 outline:none ;
             }
@@ -94,7 +99,57 @@ export const UpperSectionStyle = styled.section`
             display: flex;
         }
     
- }    
+ }  
+ 
+ @media (max-width:48em){
+        padding:1.5em 1em ;
+        flex-direction:column ;
+        row-gap:2.3em;
+        .dropDown__container{
+          align-self:flex-start ;
+          .dropDown__item__head{
+           top:3em ;
+        }
+        }
+        .dropDown__menu{
+          padding:1.5em 1.5em 1.5em 1.5em !important ;
+        }
+        .dropDown__menu,.dropDown__item{
+          font-size:0.8rem ;
+        }
+      
+        .search__box{
+          max-width:500px;
+          font-size:0.8rem ;
+          padding:1.6em 1.6em 1.6em 1.6em !important ;
+          input {
+            font-size:0.8rem !important;
+          }
+        }
+    }
+
+    @media (min-width:1365px){
+      padding:3em 4.5em 1.5em 4.5em ;
+
+      .search__box{
+        padding:1.2em  1em 1.2em 2em;
+        min-width:470px ;
+      }
+    }
+
+    @media (min-width:1600px){
+      .search__box{
+        input {
+          font-size:1.2rem ;
+        }
+      }
+      .dropDown__menu,.dropDown__item{
+        font-size:1.2rem ;
+      }
+      .dropDown__item__head{
+        top:4.5em ;
+      }
+    }
 `
 
 export const CountriesSectionStyle = styled.section`
@@ -149,4 +204,45 @@ export const CountriesSectionStyle = styled.section`
         
       }
     }
+
+      
+  @media (min-width:1365px){
+    padding:1.5em 4.5em ;
+
+   .country__row{
+    justify-content:space-between ;
+    gap:3em;
+
+    article{
+      max-width:21% ;
+        .country{
+        max-width:100%;
+    
+      }
+ 
+    }
+   
+    }
+
+
+   }
+  
+   @media (min-width:1600px){
+     article {
+      max-width:21rem ;
+      .country {
+        max-width: 21rem;
+        img{
+          height:200px ;
+        }
+        h3{
+          font-size:1.5rem ;
+        }
+        p{
+          font-size:1.2rem ;
+        }
+     }
+    }
+   }
+
 `

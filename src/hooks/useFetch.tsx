@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-// import {  CountryInfo } from '../components/countries'
 import {CleanedCountry,CountryInfo} from '../interfaces/countries.interface'
-interface MyObject {
+type MyError= {
     message: string;
     statusCode?:null | number;
   }
@@ -12,21 +11,21 @@ const useFetch = (region:string,filteredValue: string, searchValue: string) => {
     const [countries, setCountries] = useState<CleanedCountry[]>([]);
     const [searchCountries, setSearchCountries] = useState<CleanedCountry[]>([])
     const [loading, setLoading] = useState<Boolean>(true);
-    const [isMounted, setIsMounted] = useState(false);
-    const [error, setError] = useState<MyObject>({ message: "", statusCode: null });
+    const [error, setError] = useState<MyError>({ message: "", statusCode: null });
     
    
 
     const SearchCountries = (searchValue: string, arr: CleanedCountry[]) => {
         //  split this into an array
         const regex = new RegExp(searchValue, 'i');
-
-        const filteredCountries = arr.filter((item: any) => regex.test(item.name)); // searchng using the regex
+        const filteredCountries = arr.filter((item:CleanedCountry) => regex.test(item.name)); // searchng using the regex
         setCountries(filteredCountries)
 
     }
-    useEffect(() => {
 
+    useEffect(() => {
+        console.log('hook ran');
+        let isMounted = true
         // Abort controllers
 
         const controller = new AbortController()
@@ -72,9 +71,7 @@ const useFetch = (region:string,filteredValue: string, searchValue: string) => {
                     if (a.name < b.name) return -1;
                     if (a.name > b.name) return 1;
                     return 0;
-                });
-               
-       
+                }); 
                     
                 setCountries(ModifiedCountries)
                 setSearchCountries(ModifiedCountries)
@@ -83,20 +80,13 @@ const useFetch = (region:string,filteredValue: string, searchValue: string) => {
                 setError({ message:'', statusCode:null })
           
 
-
-
             } catch (error:unknown) {
-                if(error instanceof Error){
+                if(error instanceof Error && isMounted){
                     
-                    const myError: MyObject = { message: error.message};
-                      if (isMounted) {
+                     const myError: MyError = { message: error.message};
+                   
                         setError(myError);
-                        setLoading(false)
-                      } else {
-                        console.log(error);
-                      }
-                    // setError(myError);
-                  
+                        setLoading(false)                  
                 }
                
             }
@@ -106,7 +96,7 @@ const useFetch = (region:string,filteredValue: string, searchValue: string) => {
         return () => {
 
             //console.log('fetch sborted');
-            setIsMounted(false)
+            isMounted=false
             controller.abort()
         }
 

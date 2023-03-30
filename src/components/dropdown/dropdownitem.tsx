@@ -1,13 +1,6 @@
-// import  {DropDownItemType} from './mainsection'
-import {DropDownItemTypes} from '../interfaces/countries.interface'
-// interface DropDownItemTypes{
-//     options:{
-//         value:string,
-//         label:string,
-//     };
-//     changeSelectedItem:React.Dispatch<React.SetStateAction<DropDownItemType>>;
-//     closeDropDown:()=>void;
-// }
+
+import {DropDownItemTypes} from '../../interfaces/countries.interface'
+
 const DropDownItem = ({options,changeSelectedItem,closeDropDown}:DropDownItemTypes) => {
   
     const handleClick = ()=>{

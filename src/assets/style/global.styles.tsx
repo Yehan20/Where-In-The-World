@@ -16,6 +16,9 @@ const GlobalStyle =createGlobalStyle`
     box-sizing: border-box;
 
   }
+  html{
+    scroll-behavior:smooth;
+  }
   body{
       margin: 0;                           
       min-height: 100vh;
@@ -29,7 +32,7 @@ const GlobalStyle =createGlobalStyle`
 
 
   ::placeholder{
-    opacity:1 ;
+    opacity:0.5 ;
   }
   .box{
         width:200px;
@@ -37,11 +40,11 @@ const GlobalStyle =createGlobalStyle`
         background-color:red ;
   }
     .loader {
-    border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #3498db; /* Blue */
+    border: 16px solid transparent; /* Light grey */
+    border-top: 16px solid ${({theme}:ThemeType)=>theme.textClr}; /* Blue */
     border-radius: 50%;
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
     animation: spin 2s linear infinite;
     /* background-color:red ; */
     margin: 0 auto ;
@@ -53,6 +56,7 @@ const GlobalStyle =createGlobalStyle`
   }
   .go__home{
     padding:3em 2em 3em 2em ;
+  
     a{
       /* display:inline-block; */
       text-decoration:none;
@@ -75,6 +79,22 @@ const GlobalStyle =createGlobalStyle`
         transform:translateX(-5px) ;
       }
     }
+    @media (max-width:48em){
+      padding:3em 1.5em 3em 1.5em ;
+    }
+
+    @media (min-width:1365px){
+   padding:4em 4.5em 3em 4.5em;
+    }
+
+    @media (min-width:1600px){
+    
+        a{
+          font-size:1.4rem ;
+        
+      }
+    }
+ 
   }
 `
 export default GlobalStyle;

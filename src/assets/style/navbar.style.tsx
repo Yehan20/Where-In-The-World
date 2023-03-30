@@ -5,7 +5,7 @@ const NavBarStyled  = styled.nav`
   padding:1.5em 2em;
   display:flex;
  
-  align-items:flex-start;
+  align-items:center;
   justify-content:space-between;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   button{
@@ -22,6 +22,29 @@ const NavBarStyled  = styled.nav`
   }
   h1{
     color:${({theme})=>theme.textClr};
+  }
+  @media (max-width:48em){
+    padding:1.5em 1em;
+    align-items:center;
+    h1{
+      font-size:1.1rem ;
+    }
+  }
+  @media (min-width:1365px){
+   padding:1.5em 4.5em ;
+   button{
+      font-size:1rem ;
+    }
+  }
+  @media (min-width:1600px){
+    align-items:center ;
+    button{
+      font-size:1.5rem ;
+    }
+    h1{
+      font-size:2rem ;
+    }
+  
   }
 `
 export default NavBarStyled

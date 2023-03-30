@@ -1,3 +1,4 @@
+
 export interface CountryInfo{
     name:{
         common:string,
@@ -47,7 +48,7 @@ export interface CleanedCountry{
     region:string;
     subregion:string;
     tld:string;
-    nativeNames:{official:string,common:string}[];
+    nativeNames:string[];
     currencies:{name:string,symbol:string}[];
     languages:string[];
     borders:string[];

@@ -1,18 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {FaSearch} from 'react-icons/fa'
-import {UpperSectionStyle,MainSectionStyle} from './style/mainsection.style';
+import {UpperSectionStyle,MainSectionStyle} from '../../assets/style/mainsection.style';
 import { FaAngleDown } from 'react-icons/fa';
-import DropDownItem from './dropdownitem';
-import Countries from './countries';
-import useClickOutside from '../hooks/useclickoutside'
-import {DropDownItemType} from '../interfaces/countries.interface'
+import DropDownItem from '../dropdown/dropdownitem';
+import Countries from '../countries/allcountries';
+import useClickOutside from '../../hooks/useclickoutside'
+import {DropDownItemType} from '../../interfaces/countries.interface'
 import {motion} from 'framer-motion'
-// export interface DropDownItemType{
-//     label:string | '';
-//     value:string | '';
-// }
 
-const MainSection = () => {
+
+const Home = () => {
     // Arrays
     const dropDownlist:DropDownItemType[]=[
         {label:'All',value:'All'},
@@ -33,7 +30,7 @@ const MainSection = () => {
     // Refs
     const dropDownMenuRef = useRef<HTMLDivElement | null>(null) 
     
-    // console.log(typeof dropDownMenuRef)
+
 
     //Custom Hook
     useClickOutside(dropDownMenuRef,()=>{
@@ -60,33 +57,15 @@ const MainSection = () => {
                <FaAngleDown/>
              </div>
 
-             <div className="dropDown__item__head" >
+              {dropdownOpen && <div className="dropDown__item__head" >
                 {dropdownOpen && dropDownlist.map((listItem,index)=>{
                     return <DropDownItem key={index} closeDropDown={toggleDropDown} changeSelectedItem={setDropDownItem} options={listItem}/>
                 })}
-             </div>
+             </div>} 
            </div>
       </UpperSectionStyle>
-      {/* <motion.div animate={
-          {
-            x:"1150px",
-            y:"-20px",
-            opacity:1 
-          }
-      }
-       initial={{
-          opacity:0.2
-       }}
-        transition={{
-            duration:1,
-
-        }}
-      className='box'>
-
-      </motion.div> */}
      <Countries searchValue={searchValue} filteredValue={dropdownItem}/>
-
  </MainSectionStyle> );
 }
  
-export default MainSection;
+export default Home;

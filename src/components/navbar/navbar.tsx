@@ -1,24 +1,8 @@
 import {BsMoon,BsSun} from 'react-icons/bs'
-import NavBarStyled from './style/navbar.style';
-import {color} from '../components/colors/colors'
-import {NavBarInterface} from '../interfaces/countries.interface'
-// interface NavBarInterface{
-//      setColors:React.Dispatch<React.SetStateAction<{
-//         primary: string;
-//         secondary: string;
-//         textClr:string
-//         isDark: boolean;
-//         iconClr:string;
-//     }>>;
+import NavBarStyled from '../../assets/style/navbar.style';
+import {color} from '../../data/colors'
+import {NavBarInterface} from '../../interfaces/countries.interface'
 
-//     colors: {
-//         primary: string;
-//         secondary: string;
-//         textClr:string;
-//         isDark: boolean;
-//         iconClr:string;
-//     }
-// }
 const NavBar = ({setColors,colors}:NavBarInterface) => {
     const handleClick=()=>{
         // if this is dark mark light 
