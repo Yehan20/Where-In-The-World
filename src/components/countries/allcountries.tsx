@@ -12,13 +12,13 @@ const Countries = ({ filteredValue, searchValue }: CountryData) => {
     const { countries, loading,error } = useFetch(filteredValue.label, filteredValue.value, searchValue)
 
     return (
-      <CountriesSectionStyle>
+      <CountriesSectionStyle id='test'>
   
          <div className="country__row">
          {error.message && <h3>{error.message}</h3>}
          {loading  &&  <Loader/>}
         </div>
-        <AnimatePresence mode='wait'>
+   
         <motion.div className="country__row"  initial={{ opacity: 0,  y: 120,  }}   animate={{opacity: 1,y: 0,}}  transition={{           
                 type:'tween',
                 duration: 1,
@@ -41,7 +41,7 @@ const Countries = ({ filteredValue, searchValue }: CountryData) => {
 
             })}
         </motion.div>    
-        </AnimatePresence>   
+      
      
        
 </CountriesSectionStyle>);
