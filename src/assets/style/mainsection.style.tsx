@@ -159,7 +159,7 @@ export const UpperSectionStyle = styled.section`
 `
 
 export const CountriesSectionStyle = styled.div`
-   background-color:red ;
+
     padding:1.5em 2em;
     .country__row{
       display:flex ;
