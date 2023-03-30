@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 import { CountriesSectionStyle } from '../../assets/style/mainsection.style'
 import { CountryData, CleanedCountry } from '../../interfaces/countries.interface'
-import { motion} from 'framer-motion'
+import { motion,AnimatePresence} from 'framer-motion'
 import Loader from '../loader/loader';
 
 
@@ -17,8 +17,10 @@ const Countries = ({ filteredValue, searchValue }: CountryData) => {
          <div className="country__row">
          {error.message && <h3>{error.message}</h3>}
          {loading  &&  <Loader/>}
-        </div>   
-        <motion.div className="country__row"  initial={{ opacity: 0,  y: 100,  }}   animate={{opacity: 1,y: 0,}}  transition={{           
+        </div>
+        <AnimatePresence mode='wait'>
+        <motion.div className="country__row"  initial={{ opacity: 0,  y: 120,  }}   animate={{opacity: 1,y: 0,}}  transition={{           
+                type:'tween',
                 duration: 1,
                 ease: "linear",
             }}>
@@ -38,7 +40,9 @@ const Countries = ({ filteredValue, searchValue }: CountryData) => {
                 </article>
 
             })}
-        </motion.div>
+        </motion.div>    
+        </AnimatePresence>   
+     
        
 </CountriesSectionStyle>);
 }

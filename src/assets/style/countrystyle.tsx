@@ -20,7 +20,7 @@ const CountryStyle = styled.div`
        transform: translateY(100px);
        /* animation: name duration timing-function delay iteration-count direction fill-mode play-state;
  */
-       animation: fadeUp 500ms ease-in forwards ;
+       animation: fadeUp 300ms ease-in forwards ;
     }
 
       @keyframes fadeUp {
