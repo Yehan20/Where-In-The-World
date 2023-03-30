@@ -97,3 +97,15 @@ export interface DropDownItemTypes{
     changeSelectedItem:React.Dispatch<React.SetStateAction<DropDownItemType>>;
     closeDropDown:()=>void;
 }
+
+export interface Color{
+    iconClr:string
+    
+    isDark:boolean
+    
+    primary:string
+  
+    secondary:string
+  
+    textClr:string
+  }

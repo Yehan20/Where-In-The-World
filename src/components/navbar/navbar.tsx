@@ -6,9 +6,15 @@ import {NavBarInterface} from '../../interfaces/countries.interface'
 const NavBar = ({setColors,colors}:NavBarInterface) => {
     const handleClick=()=>{
         
-        // if this is dark mark light 
-        if(colors.isDark) setColors({primary:color.White, secondary:color.LightGray,textClr:color.VeryDarkText,iconClr:color.DarkGray,isDark:!colors.isDark})
-        else setColors({primary:color.DarkBlue,secondary:color.VeryDarkBg,textClr:color.White,iconClr:color.White,isDark:!colors.isDark})
+        // if this is dark make light 
+        if(colors.isDark) {
+            setColors({primary:color.White, secondary:color.LightGray,textClr:color.VeryDarkText,iconClr:color.DarkGray,isDark:!colors.isDark})
+            localStorage.setItem('colors',JSON.stringify({primary:color.White, secondary:color.LightGray,textClr:color.VeryDarkText,iconClr:color.DarkGray,isDark:!colors.isDark}))
+        }
+        else {
+            setColors({primary:color.DarkBlue,secondary:color.VeryDarkBg,textClr:color.White,iconClr:color.White,isDark:!colors.isDark});
+            localStorage.setItem('colors',JSON.stringify({primary:color.DarkBlue,secondary:color.VeryDarkBg,textClr:color.White,iconClr:color.White,isDark:!colors.isDark}))
+        }
     }
     return ( <NavBarStyled>
           <h1>Where in the World</h1>

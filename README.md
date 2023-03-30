@@ -35,14 +35,14 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/Yehan20/Where-In-The-World)
-- Live Site URL: [Add live site URL here](https://yn-where-in-the-world.netlify.app/country/)
+- Solution URL: [Click to visit](https://github.com/Yehan20/Where-In-The-World)
+- Live Site URL: [Click to visit](https://yn-where-in-the-world.netlify.app/country/)
 
 ## My process
 
 ### Built with
 
-
+- Framer
 - Flexbox
 - Bem
 - [React](https://reactjs.org/) - JS library
@@ -50,9 +50,18 @@ Users should be able to:
 - [Styled Components](https://styled-components.com/) - For styles
 
 
+### Tools and technologies used
+
+- Vitep
+- Custom Hooks
+- TS Interfaces
+- React Router 6
+
+
+
 ### What I learned
 
-My first project using react with type script, learnt a alot an gained lots of experience , mainly learnt to  use intefaces in type script and managme props that is send to components and use them to add types. learnt use framer motion for animations
+My first project using react with type script, learnt a alot an gained lots of experience , mainly learnt to  use intefaces in type script and managme props that is send to components and use them to add types. learnt use framer motion for animations. there was alot of modifiying the api data to a way to make it more easy to use
 
 
 ## Author
