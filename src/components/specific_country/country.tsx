@@ -52,7 +52,7 @@ useEffect(() => {
         
         <> 
         <div id='test' className='go__home'><Link to={'/'} title='Go Home'><HiArrowLongLeft size={'22px'}/>Back</Link></div> 
-        {loader&&loading &&   <Loader/>}
+        {loader&&<Loader/>}
         {error.message && <h3>{error.message}</h3>}
         {animate && countries &&countries.map((country,index)=>{
            return  <SingleCountry key={index} borderCountries={borderCountries}  country={country} animate={animate}/>

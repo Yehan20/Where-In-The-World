@@ -35,8 +35,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Add solution URL here](https://github.com/Yehan20/Where-In-The-World)
+- Live Site URL: [Add live site URL here](https://yn-where-in-the-world.netlify.app/country/)
 
 ## My process
 
