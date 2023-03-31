@@ -62,7 +62,7 @@ Users should be able to:
 
 ### What I learned
 
-My first project using react with type script, learnt a alot an gained lots of experience , mainly learnt to  use intefaces in type script and managme props that is send to components and use them to add types. learnt use framer motion for animations. there was alot of modifiying the api data to a way to make it more easy to use
+My first project using react with type script, learnt a alot and gained lots of experience , mainly learnt to  use intefaces in type script and manage props that is been send to components and use them to add types. learnt use framer motion for animations. there was alot of modifiying the api data to a way to make it more easy to use
 
 
 ## Author

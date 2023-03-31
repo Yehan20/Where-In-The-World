@@ -84,7 +84,7 @@ const GlobalStyle =createGlobalStyle`
     }
 
     @media (min-width:1365px){
-   padding:4em 4.5em 3em 4.5em;
+   padding:4em 4.5em 3em 5em;
     }
 
     @media (min-width:1600px){

@@ -220,6 +220,7 @@ export const CountriesSectionStyle = styled.div`
    .country__row{
     justify-content:space-between ;
     column-gap:3.6em;
+    row-gap:4.2em;
 
     article{
       max-width:21% ;

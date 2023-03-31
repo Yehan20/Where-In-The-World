@@ -199,7 +199,7 @@ const CountryStyle = styled.div`
   }
 
   @media (min-width:1365px){
-   padding:1em 4.5em 2em 4.5em;
+   padding:1em 4.5em 2em 5em;
   }
 
   @media (min-width:1600px){
