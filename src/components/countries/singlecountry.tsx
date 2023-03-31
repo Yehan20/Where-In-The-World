@@ -42,7 +42,7 @@ const SingleCountry = ({ country, animate, borderCountries }: SingleCountryType)
                     </div>
                 </div>
                 <div className="border__countries">
-                    <span>Border Countries </span>{
+                   {country.borders.length>0?<span>Border Countries </span>:<span>No Borders</span>}  {
                         country.borders.map((border, index) => {            
                             return <Link key={index} className='border__btn' to={`/country/${border}`}>{borderCountries[index]}</Link>
                         })

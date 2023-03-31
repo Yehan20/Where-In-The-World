@@ -72,6 +72,9 @@ const CountryStyle = styled.div`
     }
     display:flex;
     justify-content:space-between ;
+    div{
+      width:100% ;
+    }
     span {
     font-weight:600 ;
  }

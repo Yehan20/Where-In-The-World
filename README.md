@@ -53,7 +53,7 @@ Users should be able to:
 
 ### Tools and technologies used
 
-- Vitep
+- Vite
 - Custom Hooks
 - TS Interfaces
 - React Router 6
