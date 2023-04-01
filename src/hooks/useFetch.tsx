@@ -45,13 +45,20 @@ const useFetch = (region:string,filteredValue: string, searchValue: string) => {
 
                 const response = await fetch(API_URL, { signal });
                 const data = await response.json();
+               // console.log(data)
+               data.forEach((I:CleanedCountry)=>console.log(I))
 
                 const ModifiedCountries:CleanedCountry[] = data.map((item: CountryInfo) => {
 
                     // the data i need to pre format before  sending it 
-                    let formattedCurrency = item.currencies && Object.values(item.currencies);
-                    let formattedLanguages = item.languages && Object.values(item.languages);
-                    let formattedNativeName =region ==='alpha'?(Object.values(item.name.nativeName)).map(item=>item.common) :['']
+                    let test = item.currencies ?Object.values(item.currencies) : undefined;
+              
+             
+                    let formattedCurrency = ((item.currencies ? Object.values(item.currencies):undefined));
+                    let formattedLanguages = ((item.languages ? Object.values(item.languages):undefined));
+                    console.log(formattedCurrency,formattedLanguages);
+                    let formattedNativeName =region ==='alpha'?(item.name.nativeName?(Object.values(item.name.nativeName)).map(item=>item.common):undefined) :['']
+                    console.log("formatted data",formattedCurrency,formattedLanguages,formattedNativeName);
                     return {
                         capital: item.capital || 'NA',
                         name: item.name.common,
@@ -60,9 +67,9 @@ const useFetch = (region:string,filteredValue: string, searchValue: string) => {
                         population: item.population.toLocaleString(),
                         region: item.region,
                         subregion: item.subregion || 'NA',
-                        nativeNames:formattedNativeName,
+                        nativeNames:formattedNativeName || ['NA'],
                         tld: item.tld,
-                        currencies: formattedCurrency || [{ name: 'NA' , symbol: 'NA' }],
+                        currencies: formattedCurrency || [{ name: 'NA' , symbol: '' }],
                         languages: formattedLanguages || ['NA'],
                         borders: item.borders || [],
                         flags: {...item.flags,coatOfArms:item.coatOfArms.svg || 'NA'}
@@ -73,7 +80,7 @@ const useFetch = (region:string,filteredValue: string, searchValue: string) => {
                     if (a.name > b.name) return 1;
                     return 0;
                 }); 
-                    
+                console.log("DATA",ModifiedCountries);         
                 setCountries(ModifiedCountries)
                 setSearchCountries(ModifiedCountries)
                 SearchCountries(searchValue, ModifiedCountries)

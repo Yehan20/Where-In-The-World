@@ -13,9 +13,10 @@ const Country = () => {
         id = (window.location.pathname).split('/')[2]
     }
 
-
+   
 
     const { countries, loading,error } = useFetch('alpha', id, '')
+    console.log("DATA",countries)
     const [borderCountries,setBorderCountries]= useState<string[]>([])
     const [loader,setLoader]=useState(true);
     const [animate,setAnimate] =useState(false)

@@ -168,6 +168,11 @@ export const CountriesSectionStyle = styled.div`
       column-gap:3.6em;
       row-gap:4em;
     }
+
+     .no__result{
+     color:${({theme})=>theme.textClr} ;
+     font-size:2rem ;
+     }
      article{
       max-width: 16rem;
       width: 100%;
